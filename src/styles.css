@@ -11,7 +11,9 @@
     align-content: center;
 
   }
-  
+  .search-form {
+    background-color: darkblue;
+  }
   .photo-card {
    height: 100%;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
