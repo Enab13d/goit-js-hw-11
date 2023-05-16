@@ -1,19 +1,19 @@
 export default function renderMarkup(data) {
-    const {
-      data: { hits },
-    } = data;
-    const markup = hits
-      .flatMap(
-        ({
-          largeImageURL,
-          tags,
-          webformatURL,
-          likes,
-          views,
-          comments,
-          downloads,
-        }) => `<a href ='${largeImageURL}' title='${tags}'><div class="photo-card">
-      <img src='${webformatURL}' alt='${tags}' loading="lazy" />
+  const {
+    data: { hits },
+  } = data;
+  const markup = hits
+    .flatMap(
+      ({
+        largeImageURL,
+        tags,
+        webformatURL,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => `<a href ='${largeImageURL}'><div class="photo-card">
+      <img src='${webformatURL}' alt='${tags}' title='${tags}' loading="lazy"/>
       <div class="info">
         <p class="info-item">
           <b>Likes</b>
@@ -33,7 +33,7 @@ export default function renderMarkup(data) {
         </p>
       </div>
     </div></a>`
-      )
-      .join('');
-    return markup;
-  }
+    )
+    .join('');
+  return markup;
+}
