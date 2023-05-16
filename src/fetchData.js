@@ -17,4 +17,5 @@ async function fetchData(searchQuery) {
       return response;
   }
   function incrementPageValue () {return pageValue ++};
-  export {pageValue, itemsPerPage, fetchData, incrementPageValue};
+  function resetPageCount () {return pageValue = 1};
+  export {pageValue, itemsPerPage, fetchData, incrementPageValue, resetPageCount};

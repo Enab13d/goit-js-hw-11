@@ -1,7 +1,7 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { fetchData, pageValue, itemsPerPage, incrementPageValue } from './fetchData';
+import { fetchData, pageValue, itemsPerPage, incrementPageValue, resetPageCount } from './fetchData';
 import renderMarkup from './renderMarkup';
 const refs = {
   form: document.querySelector('#search-form'),
@@ -21,7 +21,6 @@ let currentSearchQuery = null;
 const failureMsg = `We're sorry, but you've reached the end of search results.`;
 const noMatchesMsg =
   'Sorry, there are no images matching your search query. Please try again';
-const resetPageCount = () => pageValue = 1;
 const clearMarkup = () => (refs.gallery.innerHTML = '');
 
 
