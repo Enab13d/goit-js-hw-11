@@ -51,11 +51,14 @@ async function onSubmit(e) {
     }
     if (pageValue === 1) {
       Notify.success(`Hooray! We found ${totalHits} images.`);
+      refs.loadMoreBtn.classList.remove('is-hidden');
+    }
+    if (pageValue === totalPages) {
+      refs.loadMoreBtn.classList.add('is-hidden');
     }
     refs.gallery.insertAdjacentHTML('beforeend', renderMarkup(d));
     gallery.refresh();
     previousSearchQuery = searchQuery.value;
-    refs.loadMoreBtn.classList.remove('is-hidden');
     incrementPageValue();
   } catch {
     Notify.failure(noMatchesMsg);
@@ -75,6 +78,8 @@ async function onClick() {
     gallery.refresh();
     if (pageValue > totalPages) {
       throw new Error();
+    } else if (pageValue === totalPages) {
+      refs.loadMoreBtn.classList.add('is-hidden');
     }
     incrementPageValue();
   } catch {
